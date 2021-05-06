@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="customerScreen" template="/WEB-INF/layout/baseCustomer.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="" />
+        <put-attribute name="content" value="" />
+    </definition>
+
+    <definition name="dangKyLichKham" extends="customerScreen">
+        <put-attribute name="title" value="Đăng ký lịch khám" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarMain.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dangKyLichKham.jsp" />
+    </definition>
+
+    <definition name="ketQuaKham" extends="customerScreen">
+        <put-attribute name="title" value="Kết quả khám bệnh" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarMain.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/ketQuaKham.jsp" />
+    </definition>
+
+    <definition name="adminMain" extends="customerScreen">
+        <put-attribute name="title" value="Admin - Trang chủ" />
+        <put-attribute name="content" value="/WEB-INF/jsp/adminMain.jsp" />
+    </definition>
+</tiles-definitions>

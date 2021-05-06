@@ -1,0 +1,28 @@
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+    cursor: pointer;
+    text-decoration: none;
+
+}
+.card-img{
+    align-self: center;
+    width: 35%;
+    color: darkgray;
+}
+.card{
+    padding: 2%;
+    border-radius: 7%;
+    margin: 0 1.25%;
+    transition: all 200ms;
+    border-width: 5px;
+}
+
+.logo{
+    display: block;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    filter: brightness(0) invert(1);
+
+}
