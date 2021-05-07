@@ -20,8 +20,21 @@
         <put-attribute name="content" value="/WEB-INF/jsp/ketQuaKham.jsp" />
     </definition>
 
-    <definition name="adminMain" extends="customerScreen">
-        <put-attribute name="title" value="Admin - Trang chủ" />
-        <put-attribute name="content" value="/WEB-INF/jsp/adminMain.jsp" />
+    <definition name="productManager" extends="customerScreen">
+        <put-attribute name="title" value="Quản lý sản phẩm" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/productManager.jsp" />
+    </definition>
+
+    <definition name="categoryManager" extends="customerScreen">
+        <put-attribute name="title" value="Quản lý loại sản phẩm" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/mainCategory.jsp" />
+    </definition>
+
+    <definition name="addCategory" extends="customerScreen">
+        <put-attribute name="title" value="Thêm loại sản phẩm" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/addCategory.jsp" />
     </definition>
 </tiles-definitions>

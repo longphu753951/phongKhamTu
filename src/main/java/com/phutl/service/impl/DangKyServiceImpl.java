@@ -16,4 +16,14 @@ public class DangKyServiceImpl implements DangKyService {
     public boolean addDangKy(DangKy dangKy) {
         return this.dangKyRepository.addDangKy(dangKy);
     }
+
+    @Override
+    public boolean updateDangKy(DangKy p) {
+        return this.dangKyRepository.updateDangKy(p);
+    }
+
+    @Override
+    public DangKy selectDangKybyId(int id) {
+        return this.dangKyRepository.selectDangKybyId(id);
+    }
 }

@@ -28,10 +28,11 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
+    @Transactional
     public boolean addOrUpdateCategory(Category p) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try{
-            if(p.getCategoryId() >0){
+            if(p.getCategoryId() != null){
                 session.update(p);
             } else {
                 session.save(p);
@@ -46,6 +47,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
+    @Transactional
     public boolean deleteCategory(int categoryId) {
         try {
             Session session = this.sessionFactory.getObject().getCurrentSession();
@@ -60,6 +62,7 @@ public class CategoryRepositoryImpl implements CategoryRepository {
     }
 
     @Override
+    @Transactional
     public Category getCategoryById(int categoryId) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(Category.class, categoryId);

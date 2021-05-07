@@ -13,11 +13,7 @@
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 
-<%
-    request.setCharacterEncoding("UTF-8");
-    String title = "JSP với Tiếng Việt";
-    String name = request.getParameter("ho");
-%>
+
 
 <link href="<c:url value="/css/dangKyLichKham.css"/>" rel="stylesheet" />
     <div style="height: 100px;padding-top: 2%" class="container">

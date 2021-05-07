@@ -31,7 +31,7 @@
 <body>
     <div class="header justify-content-center" >
         <img src="<c:url value="/image/blue-gradient-background.png" />" style="width: 100%; height: 350px">
-        <div style="position: absolute;top:20%;left: 29%" >
+        <div style="position: absolute;top:20%;left: 32%" >
             <img src="<c:url value="/image/CanabisIcon.png" />"  class="logo" >
             <h1 style=" color: #ffffff; text-align: center">Welcome to Phòng Khám Nụ Cười</h1>
         </div>

@@ -30,4 +30,24 @@ public class DangKyRepositoryImpl implements DangKyRepository {
         return false;
 
     }
+
+    @Override
+    @Transactional
+    public boolean updateDangKy(DangKy p) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.update(p);
+            return true;
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    @Transactional
+    public DangKy selectDangKybyId(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(DangKy.class, id);
+    }
 }
