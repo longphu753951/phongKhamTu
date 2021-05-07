@@ -20,7 +20,12 @@
     <a href="<c:url value="/admin/category/add"/>" class="btn btn-primary">Thêm loại sản phẩm</a>
 </div>
 <c:forEach var="category" items="${categories}" varStatus="1">
-    <div class="alert alert-primary" role="alert">
-        ${category.name}
+    <div class="alert alert-primary d-flex bd-highlight mb-3" role="alert">
+        <div class="mr-auto p-2 bd-highlight">${category.name}</div>
+        <div class="p-2 bd-highlight">
+            <a href="<c:url value="/admin/category/edit/${category.categoryId}"/>" class="btn btn-warning">Sửa</a>
+            <a href="<c:url value="/admin/category/delete/${category.categoryId}"/>" class="btn btn-danger">Xóa</a>
+        </div>
     </div>
+
 </c:forEach>

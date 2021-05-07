@@ -15,13 +15,14 @@
 
 <link href="<c:url value="/css/dangKyLichKham.css"/>" rel="stylesheet" />
 <div style="height: 100px;padding-top: 2%" class="container">
-    <h1 style=" text-align: center" class="text-center">Thêm loại thuốc</h1>
-    <form:form action="add/save" method="post" modelAttribute="category" class="main-form">
+    <h1 style=" text-align: center" class="text-center">Sửa loại thuốc</h1>
+    <form:form action="save" method="post" modelAttribute="category" class="main-form">
 
+        <form:hidden  path="categoryId" /></td>
         <div class="form-row form-group">
             <div class="col">
                 <label for="lthuoc">Tên loại thuốc</label>
-                <form:input path="name" type="text" id="lthuoc" class="form-control"  name="lthuoc" placeholder="Nhập tên loại thuốc"/>
+                <form:input path="name" value = "${category.name}" type="text" id="lthuoc" class="form-control"  name="lthuoc" placeholder="Nhập tên loại thuốc"/>
             </div>
 
         </div>
@@ -29,7 +30,7 @@
 
         <div class="form-group">
             <label for="description">Mô tả</label>
-            <form:textarea path="description"  style="resize: none;" class="form-control" id="description" rows="3"/>
+            <form:textarea path="description" value = "${category.name}" style="resize: none;" class="form-control" id="description" rows="3"/>
         </div>
         <div>
             <input value="Xác nhận" type="submit" class="btn btn-primary"/>

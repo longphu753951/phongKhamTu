@@ -15,7 +15,7 @@
 
 <link href="<c:url value="/css/dangKyLichKham.css"/>" rel="stylesheet" />
 <div style="height: 100px;padding-top: 2%" class="container">
-    <h1 style=" text-align: center" class="text-center">Đăng ký lịch khám</h1>
+    <h1 style=" text-align: center" class="text-center">Thêm loại thuốc</h1>
     <form:form action="add/save" method="post" modelAttribute="category" class="main-form">
 
         <div class="form-row form-group">
@@ -28,7 +28,7 @@
 
 
         <div class="form-group">
-            <label for="description">Triệu chứng</label>
+            <label for="description">Mô tả</label>
             <form:textarea path="description"  style="resize: none;" class="form-control" id="description" rows="3"/>
         </div>
         <div>

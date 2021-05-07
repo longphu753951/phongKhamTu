@@ -40,15 +40,42 @@ public class CategoryController {
     @PostMapping(value = "/admin/category/add/save")
     public String saveDangKy(@ModelAttribute("category") @Valid Category category, BindingResult result, Model model){
         if (result.hasErrors()) {
-            return "dangKyLichKham";
+            return "/admin/caterogy";
         }
 
         if (!this.categoryService.addOrUpdateCategory(category)) {
             model.addAttribute("erroMsg", "Something Wrong!!!");
-            return "dangKyLichKham";
+            return "/admin/caterogy";
         }
         return "redirect:/admin/caterogy";
     }
+
+    @GetMapping(value = "/admin/category/delete/{id}")
+    public String deleteCategory(@PathVariable int id, Model m){
+        this.categoryService.deleteCategory(id);
+        return "redirect:/admin/caterogy";
+    }
+
+    @GetMapping(value = "/admin/category/edit/{id}")
+    public String editCategory(@PathVariable int id, Model m){
+        Category category = this.categoryService.getCategoryById(id);
+        m.addAttribute("category", category);
+        return "editCategory";
+    }
+
+    @PostMapping(value = "/admin/category/edit/save")
+    public String editDangKySave(@ModelAttribute("category") @Valid Category category, BindingResult result, Model model){
+        if (result.hasErrors()) {
+            return "/admin/caterogy";
+        }
+
+        if (!this.categoryService.addOrUpdateCategory(category)) {
+            model.addAttribute("erroMsg", "Something Wrong!!!");
+            return "/admin/caterogy";
+        }
+        return "redirect:/admin/caterogy";
+    }
+
     @InitBinder
     public void initBinder(WebDataBinder binder){
         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true, 10));
