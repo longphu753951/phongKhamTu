@@ -43,4 +43,16 @@
         <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/editCategory.jsp" />
     </definition>
+
+    <definition name="addMedicine" extends="customerScreen">
+        <put-attribute name="title" value="Thêm sản phẩm" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/addMedicine.jsp" />
+    </definition>
+
+    <definition name="medicineManager" extends="customerScreen">
+        <put-attribute name="title" value="Quản lý thuốc than" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/medicineManager.jsp" />
+    </definition>
 </tiles-definitions>

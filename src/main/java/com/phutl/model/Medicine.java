@@ -18,6 +18,10 @@ public class Medicine implements Serializable {
 
     @Column(name = "price" , nullable = false)
     private BigDecimal price;
+
+    @Column(name = "pic", nullable = false)
+    private String pic;
+
     
 
     @ManyToOne
@@ -27,10 +31,11 @@ public class Medicine implements Serializable {
     public Medicine() {
     }
 
-    public Medicine(Integer medicineId, String fullname, BigDecimal price, Category category) {
+    public Medicine(Integer medicineId, String fullname, BigDecimal price, String pic, Category category) {
         this.medicineId = medicineId;
         this.fullname = fullname;
         this.price = price;
+        this.pic = pic;
         this.category = category;
     }
 
@@ -64,5 +69,13 @@ public class Medicine implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }

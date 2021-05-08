@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -24,6 +25,7 @@ public class MedicineRepositoryImpl implements MedicineRepository {
     private LocalSessionFactoryBean sessionFactory;
 
     @Override
+    @Transactional
     public List<Medicine> getMedicines() {
         Session session = this.sessionFactory
                 .getObject()
@@ -33,10 +35,11 @@ public class MedicineRepositoryImpl implements MedicineRepository {
     }
 
     @Override
+    @Transactional
     public boolean addOrUpdateMedicine(Medicine p) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         try{
-            if(p.getMedicineId() >0){
+            if(p.getMedicineId() != null){
                 session.update(p);
             } else {
                 session.save(p);
@@ -51,6 +54,7 @@ public class MedicineRepositoryImpl implements MedicineRepository {
     }
 
     @Override
+    @Transactional
     public boolean deleteMedicine(int medicineId) {
         try {
             Session session = this.sessionFactory.getObject().getCurrentSession();
@@ -65,12 +69,14 @@ public class MedicineRepositoryImpl implements MedicineRepository {
     }
 
     @Override
+    @Transactional
     public Medicine getMedicineById(int medicineId) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(Medicine.class, medicineId);
     }
 
     @Override
+    @Transactional
     public List<Medicine> getMedicinesByName(String name) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
 
