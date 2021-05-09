@@ -22,7 +22,7 @@ public class DangKyRepositoryImpl implements DangKyRepository {
     @Transactional
     public List<DangKy> selectDangKys() {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query q = session.createQuery("FROM DangKy ");
+        Query q = session.createQuery("FROM DangKy WHERE tinhTrang = 0");
         return q.getResultList();
     }
 

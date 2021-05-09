@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="form-group">
-    <label for="chonNgay">Chọn ngày khám</label>
+    <label for="chonNgay">Chi tiết khám bệnh</label>
 
     <input path="ngayKham" class="form-control" type="time" id="chonNgay" name="chonNgay"/>
 </div>

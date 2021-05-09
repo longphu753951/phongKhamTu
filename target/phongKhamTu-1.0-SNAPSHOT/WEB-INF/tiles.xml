@@ -61,4 +61,10 @@
         <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/medicineManager.jsp" />
     </definition>
+
+    <definition name="dangKyDetail" extends="customerScreen">
+        <put-attribute name="title" value="Chi tiết đăng ký" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dangKyDetail.jsp" />
+    </definition>
 </tiles-definitions>
