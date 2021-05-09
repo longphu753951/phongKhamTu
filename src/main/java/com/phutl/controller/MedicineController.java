@@ -60,7 +60,7 @@ public class MedicineController {
 
             this.medicineService.addOrUpdateMedicine(medicine);
         }
-        return "redirect:/admin";
+        return "redirect:/admin/Medicine";
     }
 
     @RequestMapping("/admin/Medicine")

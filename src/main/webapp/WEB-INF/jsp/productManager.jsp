@@ -18,7 +18,7 @@
 <div>
     <h2 style="text-align: center; padding: 5% 0px">Quản lý sản phẩm</h2>
     <div style="padding-bottom: 3%;" class="row d-flex justify-content-center" >
-        <a href="<c:url value="/admin/Medicine/add"/>" class="card" style="width: 30%;">
+        <a href="<c:url value="/admin/Medicine"/>" class="card" style="width: 30%;">
             <img src="<c:url value="/image/drug_icon.png" />"  class="card-img card-img-top">
             <div class="card-body">
                 <h5 style="text-align: center" class="card-title">Quản lý thuốc</h5>

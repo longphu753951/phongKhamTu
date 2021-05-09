@@ -21,6 +21,9 @@
 
 
 <h2 style="text-align: center; padding: 5% 0px">Quản lý thuốc than</h2>
+<div style="padding-bottom: 2%" class="btn-group" role="group" aria-label="Basic example">
+    <a href="<c:url value="/admin/Medicine/add"/>" class="btn btn-primary">Thêm thuốc</a>
+</div>
 <%
     int start = 0;
     Object a  =  request.getAttribute("medicines");

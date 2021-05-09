@@ -14,7 +14,9 @@
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <h1 style=" text-align: center; padding: 5% 0px" class="text-center">Thêm thuốc</h1>
 <form:form action="add/save" method="post" modelAttribute="medicine" enctype="multipart/form-data"  class="main-form">
-
+    <%
+        request.setCharacterEncoding("UTF-8");
+    %>
     <div class="form-row form-group">
         <div class="col">
             <label for="lthuoc">Tên  thuốc</label>
