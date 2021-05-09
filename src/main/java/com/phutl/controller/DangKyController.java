@@ -1,5 +1,6 @@
 package com.phutl.controller;
 
+import com.phutl.model.Category;
 import com.phutl.model.DangKy;
 import com.phutl.service.DangKyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,12 @@ public class DangKyController {
             return "dangKyLichKham";
     }
 
+    @GetMapping(value = "/admin/listDangKy")
+    public String danhSachDangKy(Model model){
+        model.addAttribute("dangKys", dangKyService.selectDangKys());
+        return "dangKyList";
+    }
+
     @PostMapping(value = "/saveDangKy")
     public String saveDangKy(@ModelAttribute("dangKy") @DateTimeFormat(pattern = "yyyy-MM-dd") @Valid DangKy dangKy, BindingResult result, Model model){
         if (result.hasErrors()) {
@@ -41,6 +48,14 @@ public class DangKyController {
         }
         return "redirect:/";
     }
+
+    @GetMapping(value = "/admin/dangky/detail/{id}")
+    public String dangKyDetail(@PathVariable int id, Model m){
+        DangKy dangKy = this.dangKyService.selectDangKybyId(id);
+        m.addAttribute("dangKy", dangKy);
+        return "dangKyDetail";
+    }
+
     @InitBinder
     public void initBinder(WebDataBinder binder){
         binder.registerCustomEditor(Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true, 10));

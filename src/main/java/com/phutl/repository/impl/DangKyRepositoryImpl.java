@@ -8,13 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public class DangKyRepositoryImpl implements DangKyRepository {
 
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+
+    @Override
+    @Transactional
+    public List<DangKy> selectDangKys() {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Query q = session.createQuery("FROM DangKy ");
+        return q.getResultList();
+    }
 
     @Override
     @Transactional

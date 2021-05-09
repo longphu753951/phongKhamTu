@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label for="description">Mô tả</label>
-            <form:textarea path="description" value = "${category.name}" style="resize: none;" class="form-control" id="description" rows="3"/>
+            <form:textarea path="description" value = "${category.description}" style="resize: none;" class="form-control" id="description" rows="3"/>
         </div>
         <div>
             <input value="Xác nhận" type="submit" class="btn btn-primary"/>

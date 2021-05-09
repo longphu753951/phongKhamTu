@@ -50,6 +50,12 @@
         <put-attribute name="content" value="/WEB-INF/jsp/addMedicine.jsp" />
     </definition>
 
+    <definition name="dangKyList" extends="customerScreen">
+        <put-attribute name="title" value="Danh sách đăng ký khám bệnh" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/dangKyList.jsp" />
+    </definition>
+
     <definition name="medicineManager" extends="customerScreen">
         <put-attribute name="title" value="Quản lý thuốc than" />
         <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />

@@ -45,10 +45,10 @@
             </div>
         </a>
 
-        <a href="<c:url value="/admin/"/>" class="card" style="width: 30%;">
+        <a href="<c:url value="/admin/listDangKy"/>" class="card" style="width: 30%;">
             <img src="<c:url value="/image/search_icon.png" />"  class="card-img card-img-top">
             <div class="card-body">
-                <h5 style="text-align: center" class="card-title">Danh sách chờ</h5>
+                <h5 style="text-align: center" class="card-title">Danh sách đăng ký</h5>
             </div>
         </a>
         <a href="<c:url value="/admin/ProductManager"/>" class="card" class="card" style="width: 30%;">
