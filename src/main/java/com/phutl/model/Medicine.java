@@ -3,6 +3,7 @@ package com.phutl.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 @Entity
 @Table(name = "medicine", schema = "phongtu")
@@ -22,7 +23,8 @@ public class Medicine implements Serializable {
     @Column(name = "pic", nullable = false)
     private String pic;
 
-    
+    @OneToMany(mappedBy = "medicine", cascade = CascadeType.ALL)
+    private Collection<KhamBenhMedicine> khamBenhMedicines;
 
     @ManyToOne
     @JoinColumn(name = "category_Id", referencedColumnName = "category_Id", nullable = false)

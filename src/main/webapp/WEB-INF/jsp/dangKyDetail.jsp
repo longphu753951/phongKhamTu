@@ -15,10 +15,11 @@
 
 <%
     request.setCharacterEncoding("UTF-8");
+    Object a  =  request.getAttribute("dangKy");
 %>
 <link href="<c:url value="/css/dangKyDetail.css"/>" rel="stylesheet" />
 <h1 style=" text-align: center; padding: 3% 0px">Chi tiết khám bệnh</h1>
-<form:form action="saveDangKy" method="post" modelAttribute="dangKy" class="main-form">
+
 <div class="form-group">
         <div class="row">
             <div class="col">
@@ -69,15 +70,18 @@
         </p>
         </div>
     </div>
-    <div class="form-row form-group">
-        <div class="col">
-            <label class="title" for="chonGio">Chọn giờ</label>
-            <input class="form-control" type="time" id="chonGio" name="chonGio"/>
+    <form:form action="/phongKhamTu_war/admin/dangKy/detail/approve" method="post">
+        <div class="form-row form-group">
+            <div class="col">
+                <label class="title" for="chonGio">Chọn giờ</label>
+                <input class="form-control" type="time" id="chonGio" name="chonGio"/>
+            </div>
         </div>
-    </div>
-    <div class="float-right">
-        <a href="<c:url value="#"/>" class="btn btn-primary">Xác nhận</a>
-        <a href="<c:url value="#"/>" class="btn btn-danger">Hủy</a>
-    </div>
+        <div class="float-right">
+            <input value="Xác nhận" type="submit" class="btn btn-primary"/>
+            <a href="<c:url value="/admin/listDangKy"/>" class="btn btn-primary">Trở về</a>
+            <a href="<c:url value="/admin/dangky/detail/cancel"/>" class="btn btn-danger">Hủy</a>
+        </div>
+    </form:form>
 </div>
-</form:form>
+
