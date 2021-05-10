@@ -28,4 +28,9 @@ public class KhamBenhServiceImpl implements KhamBenhService {
     public KhamBenh getKhamBenhById(int id) {
         return this.khamBenhRepository.getKhamBenhById(id);
     }
+
+    @Override
+    public List<KhamBenh> khamBenhByDay() {
+        return this.khamBenhRepository.khamBenhByDay();
+    }
 }

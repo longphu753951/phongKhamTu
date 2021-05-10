@@ -38,7 +38,7 @@
 </div>
 <div style="width: 100%; margin-top: 5%; margin-bottom: 5%" class="container">
     <div style="padding-bottom: 3%;" class="row d-flex justify-content-center" >
-        <a href="<c:url value="/admin/" />"  class="card" style="width: 30%;">
+        <a href="<c:url value="/admin/khamBenh" />"  class="card" style="width: 30%;">
             <img src="<c:url value="/image/register_icon.png" />" class="card-img card-img-top" >
             <div class="card-body">
                 <h5 style="text-align: center" class="card-title">Khám bệnh</h5>

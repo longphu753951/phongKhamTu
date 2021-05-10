@@ -8,4 +8,5 @@ public interface KhamBenhService {
     List<KhamBenh> khamBenhLists();
     boolean addOrUpdateKhamBenh(KhamBenh k);
     KhamBenh getKhamBenhById(int id);
+    List<KhamBenh> khamBenhByDay();
 }

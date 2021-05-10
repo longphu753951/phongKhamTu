@@ -55,4 +55,12 @@ public class KhamBenhRepositoryImpl implements KhamBenhRepository {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(KhamBenh.class, id);
     }
+
+    @Override
+    @Transactional
+    public List<KhamBenh> khamBenhByDay() {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        Query q = session.createQuery("FROM KhamBenh where ngayKham = current_date and tinhTrang = 0 order by gioKham asc");
+        return q.getResultList();
+    }
 }

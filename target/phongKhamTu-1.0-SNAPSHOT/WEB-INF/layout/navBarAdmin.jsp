@@ -21,10 +21,10 @@
                     <a class="nav-link" href="<c:url value="/admin/"/>">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/admin/"/>">Khám bệnh</a>
+                    <a class="nav-link" href="<c:url value="/admin/khamBenh"/>">Khám bệnh</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<c:url value="/admin/"/>">Danh sách chờ</a>
+                    <a class="nav-link" href="<c:url value="/admin/listDangKy"/>">Danh sách đăng ký</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<c:url value="/admin/ProductManager"/>">Quản lý thuốc</a>
