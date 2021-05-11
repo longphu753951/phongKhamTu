@@ -73,4 +73,10 @@
         <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/khamBenhMain.jsp" />
     </definition>
+
+    <definition name="khamBenhCt" extends="customerScreen">
+        <put-attribute name="title" value="Khám bệnh" />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/khamBenhCt.jsp" />
+    </definition>
 </tiles-definitions>

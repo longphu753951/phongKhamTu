@@ -20,7 +20,7 @@
 <h2 style="text-align: center; padding: 3% 0px">Danh sách chờ khám bệnh</h2>
 
 <c:forEach var="khamBenh" items="${khamBenhs}" varStatus="1">
-    <a style="margin-bottom: 2%" href="<c:url value="/admin/dangky/detail/${dangKy.dangKyId}"/>" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <a style="margin-bottom: 2%" href="<c:url value="/admin/khamBenh/detail/${khamBenh.khamBenh_Id}"/>" class="list-group-item list-group-item-action flex-column align-items-start active">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">${khamBenh.ho.toString()} ${khamBenh.ten.toString()}</h5>
             <small>

@@ -44,6 +44,9 @@ public class KhamBenh {
     @Column(name = "tongTien")
     private BigDecimal tongTien;
 
+    @Column(name = "tienKham")
+    private BigDecimal tienKham;
+
     @OneToMany(mappedBy = "khamBenh", cascade = CascadeType.ALL)
     private Collection<KhamBenhMedicine> khamBenhMedicines;
 
@@ -137,6 +140,14 @@ public class KhamBenh {
 
     public Collection<KhamBenhMedicine> getKhamBenhMedicines() {
         return khamBenhMedicines;
+    }
+
+    public BigDecimal getTienKham() {
+        return tienKham;
+    }
+
+    public void setTienKham(BigDecimal tienKham) {
+        this.tienKham = tienKham;
     }
 
     public void setKhamBenhMedicines(Collection<KhamBenhMedicine> khamBenhMedicines) {
