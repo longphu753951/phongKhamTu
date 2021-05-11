@@ -79,4 +79,10 @@
         <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
         <put-attribute name="content" value="/WEB-INF/jsp/khamBenhCt.jsp" />
     </definition>
+
+    <definition name="pickMedicine" extends="customerScreen">
+        <put-attribute name="title" value="Chọn thuốc " />
+        <put-attribute name="header" value="/WEB-INF/layout/navBarAdmin.jsp" />
+        <put-attribute name="content" value="/WEB-INF/jsp/pickMedicine.jsp" />
+    </definition>
 </tiles-definitions>

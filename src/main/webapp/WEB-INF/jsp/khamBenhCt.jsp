@@ -44,7 +44,7 @@
         <div class="float-right">
             <input value="Xác nhận" type="submit" class="btn btn-primary"/>
             <a href="<c:url value="/admin/listDangKy"/>" class="btn btn-primary">Trở về</a>
-            <a href="<c:url value="/admin/dangky/detail/cancel"/>" class="btn btn-danger">Hủy</a>
+            <a href="<c:url value="/admin/khamBenh/detail/redirect"/>" class="btn btn-danger">Hủy</a>
         </div>
     </form:form>
 </div>

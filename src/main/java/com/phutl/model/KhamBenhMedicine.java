@@ -18,6 +18,9 @@ public class KhamBenhMedicine {
     @Column(name = "price")
     private BigDecimal price;
 
+    @Column(name = "totalPrice")
+    private BigDecimal totalPrice;
+
     @ManyToOne
     @JoinColumn(name = "medicine_Id", referencedColumnName = "medicine_Id", nullable = false)
     private Medicine medicine;
@@ -25,4 +28,64 @@ public class KhamBenhMedicine {
     @ManyToOne
     @JoinColumn(name = "khamBenh_Id", referencedColumnName = "khamBenh_Id", nullable = false)
     private KhamBenh khamBenh;
+
+    public KhamBenhMedicine() {
+    }
+
+    public KhamBenhMedicine(Integer id, int quantity, BigDecimal price, BigDecimal totalPrice, Medicine medicine, KhamBenh khamBenh) {
+        this.id = id;
+        this.quantity = quantity;
+        this.price = price;
+        this.totalPrice = totalPrice;
+        this.medicine = medicine;
+        this.khamBenh = khamBenh;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Medicine getMedicine() {
+        return medicine;
+    }
+
+    public void setMedicine(Medicine medicine) {
+        this.medicine = medicine;
+    }
+
+    public KhamBenh getKhamBenh() {
+        return khamBenh;
+    }
+
+    public void setKhamBenh(KhamBenh khamBenh) {
+        this.khamBenh = khamBenh;
+    }
 }
