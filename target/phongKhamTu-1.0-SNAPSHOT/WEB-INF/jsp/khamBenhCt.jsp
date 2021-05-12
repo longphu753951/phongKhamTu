@@ -41,6 +41,12 @@
                 <textarea name="loiKhuyen" style="resize: none;" class="form-control" id="loiKhuyen" rows="3"></textarea>
             </div>
         </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="money">Tiền khám dịch vụ</label>
+                <input  step="10000" type="number" min="10000" id="money" class="form-control"  name="money" />
+            </div>
+        </div>
         <div class="float-right">
             <input value="Xác nhận" type="submit" class="btn btn-primary"/>
             <a href="<c:url value="/admin/listDangKy"/>" class="btn btn-primary">Trở về</a>

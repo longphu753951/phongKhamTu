@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -37,9 +38,11 @@ public class KhamBenhController {
 
     @GetMapping("/admin/khamBenh/detail/redirect")
     public RedirectView khamBenhChiTiet(@RequestParam("nguyenNhan") String nguyenNhan,
-                                  @RequestParam("loiKhuyen") String loiKhuyen){
+                                        @RequestParam("loiKhuyen") String loiKhuyen,
+                                        @RequestParam("money") String tienKham){
         khamBenhCt.setNguyenNhan(nguyenNhan);
         khamBenhCt.setLoiKhuyen(loiKhuyen);
+        khamBenhCt.setTienKham(new BigDecimal(tienKham));
         return new RedirectView("/admin/khambenh/chonThuoc");
     }
 
@@ -88,16 +91,30 @@ public class KhamBenhController {
         return "redirect:/admin/khambenh/chonThuoc";
     }
 
-    @GetMapping("/admin/khambenh/chonthuoc/remove/{id}")
-    public String remove(@PathVariable("id") String id, HttpSession session){
-        KhamBenhMedicine khamBenhMedicine = new KhamBenhMedicine();
+    @GetMapping("/admin/khambenh/chonthuoc/checklist/remove/{index}")
+    public String remove(@PathVariable("index") String index, HttpSession session){
         List<KhamBenhMedicine> cart = (List<KhamBenhMedicine>) session.getAttribute("cart");
-        int index = this.exists(id, cart);
-        cart.remove(index);
+        cart.remove(Integer.parseInt(index));
         session.setAttribute("cart", cart);
         return "redirect:/admin/khambenh/chonThuoc";
     }
 
+    @GetMapping("/admin/khambenh/chonthuoc/checklist")
+    public String checkList(HttpSession session){
+        List<KhamBenhMedicine> cart = (List<KhamBenhMedicine>) session.getAttribute("cart");
+        return "checkList";
+    }
+
+    @PostMapping("/admin/khambenh/chonthuoc/checklist/update")
+    public String update(HttpSession session, HttpServletRequest request){
+            int index = Integer.parseInt(request.getParameter("itemIndex"));
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            List<KhamBenhMedicine> cart = (List<KhamBenhMedicine>) session.getAttribute("cart");
+            cart.get(index).setQuantity(quantity);
+            cart.get(index).setTotalPrice(new BigDecimal(cart.get(index).getPrice().intValue()*quantity));
+            session.setAttribute("cart",cart);
+            return "redirect:/admin/khambenh/chonthuoc/checklist";
+    }
 
     private int exists(String id, List<KhamBenhMedicine> cart) {
         for (int i = 0; i < cart.size(); i++) {
