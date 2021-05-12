@@ -4,6 +4,7 @@ package com.phutl.controller;
 import com.phutl.model.KhamBenh;
 import com.phutl.model.KhamBenhMedicine;
 import com.phutl.model.Medicine;
+import com.phutl.service.KhamBenhMedicineService;
 import com.phutl.service.KhamBenhService;
 import com.phutl.service.MedicineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,9 @@ public class KhamBenhController {
     @Autowired
     private MedicineService medicineService;
 
+    @Autowired
+    private KhamBenhMedicineService khamBenhMedicineService;
+
     private KhamBenh khamBenhCt;
 
     @RequestMapping("/admin/khamBenh")
@@ -35,15 +39,26 @@ public class KhamBenhController {
         return "khamBenhMain";
     }
 
+    @RequestMapping("/admin/approve")
+    public String khamBenhApprove(HttpSession session){
+        List<KhamBenhMedicine> cart = (List<KhamBenhMedicine>) session.getAttribute("cart");
+        khamBenhCt.setTinhTrang(1);
+        khamBenhService.addOrUpdateKhamBenh(khamBenhCt);
+        for(KhamBenhMedicine khamBenhMedicine: cart){
+            khamBenhMedicineService.addOrUpdateKhamBenhMedicine(khamBenhMedicine);
+        }
+        return "redirect:/admin/khamBenh";
+    }
 
-    @GetMapping("/admin/khamBenh/detail/redirect")
+
+    @PostMapping("/admin/khamBenh/detail/redirect")
     public RedirectView khamBenhChiTiet(@RequestParam("nguyenNhan") String nguyenNhan,
                                         @RequestParam("loiKhuyen") String loiKhuyen,
                                         @RequestParam("money") String tienKham){
         khamBenhCt.setNguyenNhan(nguyenNhan);
         khamBenhCt.setLoiKhuyen(loiKhuyen);
         khamBenhCt.setTienKham(new BigDecimal(tienKham));
-        return new RedirectView("/admin/khambenh/chonThuoc");
+        return new RedirectView("/phongKhamTu_war/admin/khambenh/chonThuoc");
     }
 
     @GetMapping("/admin/khamBenh/detail/{id}")
@@ -96,12 +111,19 @@ public class KhamBenhController {
         List<KhamBenhMedicine> cart = (List<KhamBenhMedicine>) session.getAttribute("cart");
         cart.remove(Integer.parseInt(index));
         session.setAttribute("cart", cart);
-        return "redirect:/admin/khambenh/chonThuoc";
+        return "redirect:/admin/khambenh/chonthuoc/checklist";
     }
 
     @GetMapping("/admin/khambenh/chonthuoc/checklist")
-    public String checkList(HttpSession session){
+    public String checkList(HttpSession session, Model model){
         List<KhamBenhMedicine> cart = (List<KhamBenhMedicine>) session.getAttribute("cart");
+        BigDecimal tongTien = new BigDecimal(0);
+        for (KhamBenhMedicine khamBenhMedicine: cart) {
+            tongTien = tongTien.add(khamBenhMedicine.getTotalPrice());
+        }
+        tongTien =tongTien.add(khamBenhCt.getTienKham());
+        model.addAttribute("tienKham", khamBenhCt.getTienKham());
+        model.addAttribute("totalPrice", tongTien);
         return "checkList";
     }
 
@@ -112,7 +134,6 @@ public class KhamBenhController {
             List<KhamBenhMedicine> cart = (List<KhamBenhMedicine>) session.getAttribute("cart");
             cart.get(index).setQuantity(quantity);
             cart.get(index).setTotalPrice(new BigDecimal(cart.get(index).getPrice().intValue()*quantity));
-            session.setAttribute("cart",cart);
             return "redirect:/admin/khambenh/chonthuoc/checklist";
     }
 

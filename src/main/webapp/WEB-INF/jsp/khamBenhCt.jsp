@@ -25,7 +25,7 @@
             <span class="text">${khamBenhCt.ten}</span>
         </div>
     </div>
-    <form:form action="/phongKhamTu_war/admin/khambenh/chonThuoc" method="post">
+    <form:form action="/phongKhamTu_war/admin/khamBenh/detail/redirect" method="post">
         <%
             request.setCharacterEncoding("UTF-8");
         %>
@@ -50,7 +50,6 @@
         <div class="float-right">
             <input value="Xác nhận" type="submit" class="btn btn-primary"/>
             <a href="<c:url value="/admin/listDangKy"/>" class="btn btn-primary">Trở về</a>
-            <a href="<c:url value="/admin/khamBenh/detail/redirect"/>" class="btn btn-danger">Hủy</a>
         </div>
     </form:form>
 </div>

@@ -12,11 +12,13 @@
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <link href="<c:url value="/css/checkList.css"/>" rel="stylesheet" />
 <h1 style=" text-align: center; padding: 5% 0px" class="text-center">Danh sách thuốc đã chọn</h1>
-<table>
+<ul style="list-style-type:none">
+    <li style="margin-bottom: 2%">
+        <a class="btn btn-primary" href="<c:url value="/admin/khambenh/chonThuoc"/>">Trờ về</a>
+    </li>
     <c:forEach var="item" items="${sessionScope.cart}" varStatus="loop">
-        <ul style="list-style-type:none">
-           <li>
-               <form action="/phongKhamTu_war/admin/khambenh/chonthuoc/checklist/update" method="post">
+       <li>
+           <form action="/phongKhamTu_war/admin/khambenh/chonthuoc/checklist/update" method="post">
                <div class="item">
                    <div class="image image-wrapper">
                        <img style="width: 100%;" src="<c:url value="${item.medicine.pic}"/>"/>
@@ -41,10 +43,34 @@
                        </div>
 
                </div>
-               </form>
-           </li>
+           </form>
+       </li>
 
-        </ul>
-    </c:forEach>
-</table>
+
+</c:forEach>
+    <li>
+        <div class="row">
+            <div class="col d-flex justify-content-start sub_total_text" >
+                Tiền khám
+            </div>
+            <div class="col d-flex justify-content-end" style="font-size: 18px;">
+                ${tienKham} VND
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex justify-content-start sub_total_text">
+                Tổng tiền
+            </div>
+            <div class="col d-flex justify-content-end" style="font-size: 18px;">
+                ${totalPrice} VND
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="float-right" style="margin-top: 3%">
+            <a href="<c:url value="/admin/approve"/>" class="btn btn-success">Xác nhận</a>
+        </div>
+    </li>
+</ul>
+
 

@@ -21,6 +21,9 @@
 
 
 <h2 style="text-align: center; padding: 5% 0px">Chọn thuốc cho bệnh nhân</h2>
+<div style="margin: 2% 2%">
+    <a class="btn btn-primary" href="<c:url value="/admin/khambenh/chonthuoc/checklist"/>">Danh sách thuốc đã chọn</a>
+</div>
 <%
     int start = 0;
     Object a  =  request.getAttribute("medicines");
