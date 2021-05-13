@@ -44,7 +44,7 @@
     <div class="row">
         <div class="col">
             <span class="title">Ngày khám: </span>
-            <span class="text">${dangKy.ngayKham.day}/${dangKy.ngayKham.month}/${dangKy.ngayKham.year+1900}</span>
+            <span class="text">${dangKy.ngayKham.date}/${dangKy.ngayKham.month+1}/${dangKy.ngayKham.year+1900}</span>
         </div>
         <div class="col">
             <span class="title">Buổi khám: </span>

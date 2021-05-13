@@ -19,16 +19,12 @@
 <div style="height: 100px;padding-top: 2%" class="container">
     <h1 style=" text-align: center" class="text-center">Thêm loại thuốc</h1>
     <form:form action="add/save" method="post" modelAttribute="category" class="main-form">
-
         <div class="form-row form-group">
             <div class="col">
                 <label for="lthuoc">Tên loại thuốc</label>
                 <form:input path="name" type="text" id="lthuoc" class="form-control"  name="lthuoc" placeholder="Nhập tên loại thuốc"/>
             </div>
-
         </div>
-
-
         <div class="form-group">
             <label for="description">Mô tả</label>
             <form:textarea path="description"  style="resize: none;" class="form-control" id="description" rows="3"/>

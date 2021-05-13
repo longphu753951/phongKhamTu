@@ -1,0 +1,49 @@
+.title{
+    font-weight: bold; font-size: 20px
+}
+
+.text{
+    font-size: 20px
+}
+
+.item{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.6%;
+}
+
+.image{
+    width: 14%;
+}
+
+.item_detail{
+    width: 60%;
+}
+
+.item_detail_text{
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px 10px;
+}
+
+.item_detail_info{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.sub_total{
+    width: 20%;
+    margin: 10px 10px;
+}
+.sub_total_text{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.quantity{
+    width: 10%;
+    margin: 10px 10px;
+}

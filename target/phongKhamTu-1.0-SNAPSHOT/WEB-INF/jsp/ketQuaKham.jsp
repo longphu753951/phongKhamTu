@@ -11,18 +11,22 @@
            uri="http://www.springframework.org/tags/form" %>
 
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<%
+    request.setCharacterEncoding("UTF-8");
+%>
 
 <link href="<c:url value="/css/dangKyLichKham.css"/>" rel="stylesheet" />
 <div style="height: 100px;padding-top: 2%" class="container">
     <h1 style=" text-align: center" class="text-center">Kết quả khám bệnh</h1>
-    <form class="main-form">
+    <form:form action="/phongKhamTu_war/ketQuaKhamBenh/result" class="main-form">
         <div class="form-row form-group">
             <div class="col">
-                <input type="text" id="fname" class="form-control"  name="fname" placeholder="Nhập mã khám bệnh">
+                <input type="text" id="maBenh" class="form-control"  name="maBenh" placeholder="Nhập mã khám bệnh">
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-primary">Xác nhận</button>
+            <input type="submit" class="btn btn-primary" value="Xác nhận" />
         </div>
-    </form>
+    </form:form>
 </div>

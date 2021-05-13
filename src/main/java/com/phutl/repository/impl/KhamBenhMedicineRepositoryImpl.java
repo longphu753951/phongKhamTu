@@ -22,7 +22,7 @@ public class KhamBenhMedicineRepositoryImpl implements KhamBenhMedicineRepositor
     @Transactional
     public List<KhamBenhMedicine> selectByKhamBenhId(int khamBenhId) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        Query q = session.createQuery("FROM KhamBenhMedicine WHERE KhamBenhMedicine .id = :khamBenhId");
+        Query q = session.createQuery("FROM KhamBenhMedicine kbm where kbm.khamBenh.khamBenh_Id = "+khamBenhId);
         return q.getResultList();
     }
 

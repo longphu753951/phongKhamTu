@@ -122,6 +122,7 @@ public class KhamBenhController {
             tongTien = tongTien.add(khamBenhMedicine.getTotalPrice());
         }
         tongTien =tongTien.add(khamBenhCt.getTienKham());
+        khamBenhCt.setTongTien(tongTien);
         model.addAttribute("tienKham", khamBenhCt.getTienKham());
         model.addAttribute("totalPrice", tongTien);
         return "checkList";
